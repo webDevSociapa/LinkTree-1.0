@@ -1,10 +1,10 @@
 'use client';
 import LogoutButton from "@/components/buttons/LogoutButton";
-import {faFileLines} from "@fortawesome/free-regular-svg-icons";
-import {faArrowLeft, faChartLine} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faFileLines } from "@fortawesome/free-regular-svg-icons";
+import { faArrowLeft, faChartLine } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import {usePathname} from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function AppSidebar() {
   const path = usePathname();
@@ -45,6 +45,11 @@ export default function AppSidebar() {
         <FontAwesomeIcon icon={faArrowLeft} className={'w-3 h-3'} />
         <span>Back to website</span>
       </Link>
+      {/* <button>
+        <Link>
+          Preview
+        </Link>
+      </button> */}
     </nav>
   );
 }
