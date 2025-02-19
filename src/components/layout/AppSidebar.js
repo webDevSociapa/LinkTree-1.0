@@ -45,11 +45,11 @@ export default function AppSidebar() {
         <FontAwesomeIcon icon={faArrowLeft} className={'w-3 h-3'} />
         <span>Back to website</span>
       </Link>
-      {/* <button>
-        <Link>
+      <button className="inline bg-red-500 text-white mt-[100px] py-2">
+        <Link href={"http://localhost:3000/User1"} target="_blank">
           Preview
         </Link>
-      </button> */}
+      </button>
     </nav>
   );
 }

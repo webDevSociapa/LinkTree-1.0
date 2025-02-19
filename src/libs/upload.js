@@ -12,6 +12,7 @@ export async function upload(ev, callbackFn) {
         method: 'POST',
         body: data,
       }).then(response => {
+        
         if (response.ok) {
           response.json().then(link => {
             callbackFn(link);
