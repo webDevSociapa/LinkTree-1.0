@@ -3,13 +3,15 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: '*.googleusercontent.com'
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
       },
       {
-        hostname: 'linktree13.s3.amazonaws.com',
+        protocol: "https",
+        hostname: "sociapadash.s3.ap-south-1.amazonaws.com",
       },
     ],
-  }
-}
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
