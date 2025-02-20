@@ -1,8 +1,8 @@
 import {model, models, Schema} from "mongoose";
 
 const EventSchema = new Schema({
-  type: String, // click or view
-  page: String, // for example "Jeff"
+  type: String,
+  page: String,
   uri: String, // /Jeff | https://
 }, {timestamps: true});
 
