@@ -71,7 +71,7 @@ export default async function AppTemplate({ children, ...rest }) {
                 </Link>
               )}
               <div className="text-center">
-                <AppSidebar />
+                <AppSidebar page={page} />
               </div>
             </div>
           </aside>

@@ -6,7 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function AppSidebar() {
+export default function AppSidebar({page}) {
+
+  console.log("page",page);
+  
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
   const path = usePathname();
   return (
     <nav className="inline-flex mx-auto flex-col text-center mt-8 gap-2 text-gray-500">
@@ -46,10 +51,11 @@ export default function AppSidebar() {
         <span>Back to website</span>
       </Link>
       <button className="inline bg-red-500 text-white mt-[100px] py-2">
-        <Link href={"http://localhost:3000/User1"} target="_blank">
-          Preview
-        </Link>
+      <Link href={`${baseUrl}/${page.uri}`} target="_blank">
+        Preview
+      </Link>
       </button>
+
     </nav>
   );
 }
