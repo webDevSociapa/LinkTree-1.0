@@ -68,6 +68,9 @@ export default async function AnalyticsPage() {
     page: page.uri,
   });
 
+  console.log("clicks",clicks);
+  
+
   return (
     <div>
       <SectionBox>
