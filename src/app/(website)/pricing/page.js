@@ -1,71 +1,88 @@
+"use client"
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-export const metadata = {
-  title: "SociaTree | Pricing",
-  description:
-    "Share your links, social profiles, contact info and more on one page",
-};
+// export const metadata = {
+//   title: "SociaTree | Pricing",
+//   description:
+//     "Share your links, social profiles, contact info and more on one page",
+// };
 
 export default function Pricing() {
+  const tiers = [
+    {
+      name: "Premium",
+      id: "tier-premium",
+      href: "/checkout",
+      priceMonthly: "$24",
+      description: "The VIP support plan for businesses ready to monetize and sell on a larger scale.",
+      buttonText: "Get Premium",
+      mostPopular: false,
+    },
+    {
+      name: "Pro",
+      id: "tier-pro",
+      href: "/checkout",
+      priceMonthly: "$9",
+      description: "Grow, learn about and own your following forever with a branded Linktree.",
+      buttonText: "Get Pro",
+      recommended: true,
+    },
+    {
+      name: "Starter",
+      id: "tier-starter",
+      href: "/checkout",
+      priceMonthly: "$5",
+      description: "More customization and control for creators ready to drive more traffic to and through their Linktree.",
+      buttonText: "Get Starter",
+      mostPopular: false,
+    },
+    {
+      name: "Free",
+      id: "tier-free",
+      href: "/checkout",
+      priceMonthly: "$0",
+      description: "Unlimited links and a customizable Linktree to connect your community to everything you are.",
+      buttonText: "Join for free",
+      mostPopular: false,
+    },
+  ];
+  
+    const router = useRouter();
+  
+    const handleCheckout = (tier) => {
+      router.push(`/checkout?name=${tier.name}&price=${tier.priceMonthly}`);
+    };
   return (
-    <div className="py-8 px-4">
-      <main className="max-w-6xl mb-20 mx-auto mt-10">
-        <h1 className="text-center text-4xl font-bold text-gray-800 mb-20">
-          Pricing Plans
-        </h1>
-        <div className="flex flex-wrap justify-center gap-10">
-          {/* Free Plan */}
-          <div className="w-full max-w-sm p-6 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white">
-            <h2 className="text-2xl font-semibold text-center mb-4">Free</h2>
-            <ul className="mb-6">
-              <li className="mb-2">Basic Link Management</li>
-              <li className="mb-2">Custom Profile URL</li>
-              <li className="mb-2">Basic Analytics</li>
-            </ul>
-            <div className="text-center">
-              <Link
-                href="/account"
-                className="inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-200 transition-colors"
+    <div className="bg-white py-24 sm:py-32">
+    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {tiers.map((tier) => (
+          <div
+            key={tier.id}
+            className={`rounded-3xl p-8 shadow-md ${tier.recommended ? "ring-2 ring-gray-900" : "ring-1 ring-gray-200"}`}
+          >
+            <div className="bg-black text-white p-4 rounded-t-3xl">
+              <h3 className="text-lg font-semibold">{tier.name}</h3>
+              <p className="mt-2 text-3xl font-bold">{tier.priceMonthly} <span className="text-sm">USD/month</span></p>
+            </div>
+            <div className="p-6 bg-white rounded-b-3xl">
+              <p className="text-sm text-gray-600">{tier.description}</p>
+              <button
+                onClick={() => handleCheckout(tier)}
+                className={`mt-6 w-full rounded-md px-3 py-2 text-sm font-semibold shadow-sm border ${tier.recommended ? "bg-black text-white" : "bg-white text-black border-gray-900 hover:bg-gray-100"}`}
               >
-                Get Started
-              </Link>
+                {tier.buttonText}
+              </button>
+              {tier.recommended && (
+                <p className="mt-2 text-xs text-gray-500 flex justify-center">Pro users get more visitors</p>
+              )}
             </div>
           </div>
-
-          {/* Pro Plan */}
-          {/* <div className="w-full max-w-sm p-6 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-blue-50">
-            <h2 className="text-2xl font-semibold text-center mb-4">Pro</h2>
-            <ul className="mb-6">
-              <li className="mb-2">All Free features</li>
-              <li className="mb-2">Advanced Link Management</li>
-              <li className="mb-2">Extended Analytics</li>
-              <li className="mb-2">Custom Domains</li>
-            </ul>
-            <div className="text-center">
-              <Link href="/signup"
-                className="inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-200 transition-colors">Upgrade
-              </Link>
-            </div>
-          </div> */}
-
-          {/* Enterprise Plan */}
-          {/* <div className="w-full max-w-sm p-6 border rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h2 className="text-2xl font-semibold text-center mb-4">Enterprise</h2>
-            <ul className="mb-6">
-              <li className="mb-2">All Pro features</li>
-              <li className="mb-2">24/7 Support</li>
-              <li className="mb-2">Custom Integrations</li>
-              <li className="mb-2">Unlimited Links</li>
-            </ul>
-            <div className="text-center">
-              <Link href="/contact"
-                className="inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-200 transition-colors">Contact Us
-              </Link>
-            </div>
-          </div> */}
-        </div>
-      </main>
+        ))}
+      </div>
     </div>
+  </div>
   );
 }
