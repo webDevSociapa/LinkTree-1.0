@@ -10,7 +10,7 @@ export default function AppSidebar({page}) {
 
   console.log("page",page);
   
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const baseUrl = process.env.NEXTAUTH_URL;
 
   const path = usePathname();
   return (
