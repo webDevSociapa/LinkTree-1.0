@@ -142,7 +142,7 @@ export default async function UserPage({ params }) {
             key={link.url}
             target="_blank"
             ping={
-              process.env.NEXT_PUBLIC_API_BASE_URL +
+              process.env.NEXTAUTH_URL +
               "api/click?url=" +
               btoa(link.url) +
               "&page=" +

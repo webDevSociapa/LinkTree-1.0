@@ -1,9 +1,10 @@
-import {model, models, Schema} from "mongoose";
+import mongoose from 'mongoose';
 
-const EventSchema = new Schema({
+const EventSchema = new mongoose.Schema({
   type: String,
+  uri: String,
   page: String,
-  uri: String, // /Jeff | https://
-}, {timestamps: true});
+  createdAt: { type: Date, default: Date.now }
+});
 
-export const Event = models?.Event || model('Event', EventSchema);
+export const Event = mongoose.models.Event || mongoose.model('Event', EventSchema);
