@@ -17,6 +17,7 @@ import {
   faLocationDot,
   faMobile,
   faPhone,
+  faChartLine
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import mongoose from "mongoose";
@@ -29,12 +30,12 @@ export const buttonsIcons = {
   mobile: faPhone,
   instagram: faInstagram,
   facebook: faFacebook,
-  discord: faDiscord,
   tiktok: faTiktok,
   youtube: faYoutube,
   whatsapp: faWhatsapp,
   github: faGithub,
   telegram: faTelegram,
+  discord: faChartLine,
 };
 
 function buttonLink(key, value) {
