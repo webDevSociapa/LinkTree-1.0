@@ -154,6 +154,7 @@ export default async function UserPage({ params }) {
             className="bg-white p-2 flex hover:bg-gray-300 rounded-md font-extrabold border-2 border-gray-300"
             href={link.url}
           >
+            
             <div className="relative -left-7 w-18">
               <div className="w-16 h-16 bg-blue-200 aspect-square relative flex items-center justify-center rounded-full border-2 border-gray-300">
                 {link.icon && (
