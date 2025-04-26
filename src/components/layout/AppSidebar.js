@@ -51,7 +51,7 @@ export default function AppSidebar({page}) {
         <span>Back to website</span>
       </Link>
       <button className="inline bg-red-500 text-white mt-[100px] py-2">
-      <Link href={`${baseUrl}/${page.uri}`} target="_blank">
+      <Link href={`${baseUrl}/${page?.uri}`} target="_blank">
         Preview
       </Link>
       </button>

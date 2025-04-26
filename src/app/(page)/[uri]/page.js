@@ -75,6 +75,8 @@ export default async function UserPage({ params }) {
 
   const user = await User.findOne({ email: page.owner });
 
+  // 
+
   // Optionally, also check if the user was not found
   if (!user) {
     return (
