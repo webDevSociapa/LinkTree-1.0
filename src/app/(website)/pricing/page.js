@@ -49,8 +49,8 @@ export default function Pricing() {
     },
   ];
   
-    const router = useRouter();
   
+    const router = useRouter();
     const handleCheckout = (tier) => {
       router.push(`/checkout?name=${tier.name}&price=${tier.priceMonthly}`);
     };
